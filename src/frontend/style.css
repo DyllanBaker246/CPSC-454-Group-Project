@@ -1,0 +1,102 @@
+:root{
+    --test: red;
+    --background: #0B1315;
+    --highlight: #162126;
+    --primary-accent: #22D3EE;
+    --secondary-accent: #10B981;
+    --border: #2C3E44;
+    --text: #ECFEFF;
+    --secondary-text: #94A3B8;
+    --font: 'Courier New', Courier, monospace;
+
+}
+
+body{
+    font-family: var(--font);
+    color: var(--text);
+    display: flex;
+    background-color: var(--background);
+}
+
+#mouse-effect{
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 1500px;
+    height: 1500px;
+    transform: translate(-50%, -50%); /*centers effect on tip of mouse*/
+    pointer-events: none; /*stops the effect from blocking interaction*/
+    background: radial-gradient(circle, var(--border) 0%, var(--background) 70%);
+    border-radius: 50%;
+    transition: transform 0.1s ease-out;
+    z-index: -1;
+}
+
+.login-box{
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    gap: 2vh;
+    border: 2px solid var(--border);
+    border-radius: 5%;
+    
+    position: fixed;
+     width: 30vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+
+    transition: border 0.3s; /*smooth transistion when hovering*/
+    transition: background 0.3s;
+}
+
+.login-box:hover{
+    /* border: 2px solid var(--primary-accent); */
+    background-color: var(--highlight);
+}
+
+.login-button{
+    color: var(--text);
+    background-color:transparent;
+    border: 2px solid var(--border);
+    font-family: var(--font);
+
+    transition: border 0.3s; /*smooth transistion when hovering*/
+    transition: background 0.3s;
+}
+
+.login-button:hover{
+    border: 2px solid var(--secondary-accent);
+}
+
+.nav-link{
+    color: var(--primary-accent)
+}
+
+/* Target single-line inputs */
+input[type="text"] {
+  /* Box properties */
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box; /* Includes padding in width */
+
+  /* Borders & Corners */
+  border: 2px solid var(--border);
+  border-radius: 4px;
+
+  /* Typography */
+  font-family: var(--font);
+  font-size: large;
+  color: var(--text);
+
+  /* Background */
+  background-color: transparent;
+}
+
+input[type="text"]:focus {
+  border-color: var(--primary-accent); /* Green border */
+  outline: none; /* Removes default browser outline */
+  background-color: transparent;
+}

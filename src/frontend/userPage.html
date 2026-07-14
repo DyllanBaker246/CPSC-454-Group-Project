@@ -10,41 +10,89 @@
 </head>
 <body>
     <div id="mouse-effect"></div>
-    <div class="page-wrapper">
     <div class="title-box">
-        <h1>C:\Secure File Sharing\UserPage</h1>
-    </div>
-    
-    <!-- <a href="index.html" class="nav-link">logout</a> -->
+            <h1>C:\Secure File Sharing\UserPage</h1>
+        </div>
+    <div class="page-wrapper">
+        <h2>Greetings "User"!</h2>
+        <!-- <div class="title-box">
+            <h1>C:\Secure File Sharing\UserPage</h1>
+        </div> -->
+        
+        <!-- <a href="index.html" class="nav-link">logout</a> -->
 
-    <div class="container">
-  <div class="content-body">
-    <h2>Files</h2>
-    <p>This is your first block of content.</p>
-  </div>
-  
-  <div class="content-body">
-    <h2>Upload a File</h2>
-    <p>Upload files or share with other users!</p>
-  </div>
-  
-  <div class="content-body">
-    <h2>Notification Dashboard</h2>
-        <div class="notification-card">
-            <p>"User" is sharing "file"</p>
-            <botton onclick="" class="login-button">Accept</botton>
+        <div class="container">
+            <div class="content-body">
+                <h2>Files</h2>
+                <h3>My Files</h3>
+                <ul class="file-list">
+                    <li href="">
+                        <a href="">file1</a>
+                    </li>
+                    <li href="">
+                        <a href="">file2</a>
+                    </li>
+                    <li href="">
+                        <a href="">file3</a>
+                    </li>
+                    <li href="">
+                        <a href="">file4</a>
+                    </li>
+                    <li href="">
+                        <a href="">file5</a>
+                    </li>
+                    <li href="">
+                        <a href="">file6</a>
+                    </li>
+                </ul>
+                <h3>Shared Files</h3>
+                <ul class="file-list">
+                    <li href="">
+                        <a href="">file1</a>
+                    </li>
+                    <li href="">
+                        <a href="">file2</a>
+                    </li>
+                    <li href="">
+                        <a href="">file3</a>
+                    </li>
+                    <li href="">
+                        <a href="">file4</a>
+                    </li>
+                    <li href="">
+                        <a href="">file5</a>
+                    </li>
+                    <li href="">
+                        <a href="">file6</a>
+                    </li>
+                </ul>
+            </div>
+    
+            <div class="content-body">
+                <h2>Upload a File</h2>
+                <p>Upload files or share with other users!</p>
+                <input type="file" id="file-input" name="file" class="custom-file-input">
+                <input type="text" placeholder="Private-Key">
+                <button onclick="" class="file-upload-button">Upload</button>
+            </div>
+    
+            <div class="content-body">
+                <h2>Notification Dashboard</h2>
+                <div class="notification-card">
+                    <p>"User" is sharing "file"</p>
+                    <button onclick="" class="login-button">Accept</button>
+                </div>
+                <div class="notification-card">
+                    <p>"User" is sharing "file"</p>
+                    <button onclick="" class="login-button">Accept</button>
+                </div>
+                <div class="notification-card">
+                    <p>"User" is sharing "file"</p>
+                    <button onclick="" class="login-button">Accept</button>
+                </div>
+            </div>
         </div>
-        <div class="notification-card">
-            <p>"User" is sharing "file"</p>
-            <botton onclick="" class="login-button">Accept</botton>
-        </div>
-        <div class="notification-card">
-            <p>"User" is sharing "file"</p>
-            <botton onclick="" class="login-button">Accept</botton>
-        </div>
-  </div>
-</div>
-</div>
+    </div>
 
     <!-- JavaScript -->
     <script src="mouseEffect.js"></script>

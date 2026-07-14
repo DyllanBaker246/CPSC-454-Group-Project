@@ -10,12 +10,27 @@
     --font: 'Courier New', Courier, monospace;
 
 }
+html, body {
+  width: 100%;
+  margin: 0;
+  /* padding: 0; */
+  min-height: 100vh;
+}
+
 
 body{
     font-family: var(--font);
     color: var(--text);
-    display: flex;
+    /* display: flex; */
     background-color: var(--background);
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.page-wrapper {
+  padding: 0 40px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 #mouse-effect{
@@ -106,17 +121,22 @@ input[type="text"]:focus {
   display: flex;
   gap: 20px; /* Adds space between your three boxes */
   width: 100%; /* Spans the full width of the screen */
+  box-sizing: border-box;
 }
 
 /* Forces each content box to share space equally */
 .content-body {
-  flex: 1; /* Gives each item identical, flexible width */
+  flex: 1; /*Gives each item identical, flexible width*/
+  min-width: 0;
   height: 60vh;
   padding: 20px;
+  box-sizing: border-box;
+
   background-color: transparent;
   border: 2px solid var(--border);
   border-radius: 5%;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .content-body:hover{
@@ -148,14 +168,58 @@ input[type="text"]:focus {
 
 .notification-card{
     height: 20%;
-  padding: 20px;
-  background-color: transparent;
-  border: 2px solid var(--border);
-  border-radius: 5%;
-  margin: 10px;
+    padding: 20px;
+    background-color: transparent;
+    border: 2px solid var(--border);
+    border-radius: 5%;
+    margin: 10px;
 }
 
 .notification-card:hover{
+    border-color: var(--primary-accent);
+}
+
+.file-upload-button{
+    color: var(--text);
+    background-color:transparent;
+    border: 2px solid var(--border);
+    font-family: var(--font);
+
+    transition: border 0.3s; /*smooth transistion when hovering*/
+    transition: background 0.3s;
+}
+
+.file-upload-button:hover{
+    border: 2px solid var(--secondary-accent);
+}
+
+.file-list{
+    display: block; /* Forces each item onto a new line */
+    float: none;    /* Overrides any horizontal floating */
+    list-style-type: none;
+}
+
+.file-list li{
+    margin-bottom: 5px;
+}
+
+.file-list a{
+    color: var(--primary-accent);
+}
+
+.custom-file-input{
+    color: var(--text);
+    background-color: transparent;
+    font-family: var(--font);
+}
+
+.custom-file-input::file-selector-button{
+    font-family: var(--font);
+    background-color: transparent;
+    color: var(--text);
+}
+
+.custom-file-input::file-selector-button:hover{
     border-color: var(--primary-accent);
 }
 

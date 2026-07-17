@@ -143,6 +143,10 @@ input[type="text"]:focus {
     background-color: var(--highlight);
 }
 
+.content-body:hover h2{
+    color: var(--primary-accent);
+}
+
 .content-body::-webkit-scrollbar {
     width: 5px;
 }

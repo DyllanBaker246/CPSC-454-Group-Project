@@ -37,3 +37,4 @@ userPageLogoutButton.addEventListener("click", function(){
             listItem.appendChild(downloadLink);
             linkContainer.appendChild(listItem);
         });
+

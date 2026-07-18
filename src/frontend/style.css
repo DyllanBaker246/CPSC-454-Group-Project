@@ -260,3 +260,11 @@ input[type="text"]:focus {
     border-color: var(--primary-accent);
 }
 
+#home-page-buttons button{
+    display: block;
+    width: 100%; /* Tells buttons to match the container's 100vw */
+    height: 2.5rem;
+    box-sizing: border-box; /* Prevents padding from breaking the width */ 
+    margin: 10px 0;   
+}
+

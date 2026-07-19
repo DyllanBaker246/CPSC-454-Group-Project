@@ -496,6 +496,22 @@ progress {
   -webkit-appearance: none;
   appearance: none;
 }
+
+progress::-webkit-progress-value {
+    background: linear-gradient(
+        90deg,
+        var(--secondary-accent),
+        var(--primary-accent)
+    );
+}
+
+progress::-moz-progress-bar {   
+    background: linear-gradient(
+        90deg,
+        var(--secondary-accent),
+        var(--primary-accent)
+    );
+}
 /*activity log*/
 .activity-log-section {
     width: 100%;
@@ -505,11 +521,10 @@ progress {
     margin-top: 25px;
     padding: 25px;
 
-    background-color: var(--background);
+    background-color: transparent;
     color: var(--text);
 
-    border: 1px solid var(--border);
-    border-radius: 10px;
+    border: none;
 
     box-sizing: border-box;
 }
@@ -579,13 +594,11 @@ progress {
 }
 
 .activity-log-list {
-    max-height: 450px;
-    overflow-y: auto;
-
+    list-style: none;
     margin: 0;
     padding: 0;
 
-    list-style: none;
+    overflow: visible;
 }
 
 .activity-log-item {

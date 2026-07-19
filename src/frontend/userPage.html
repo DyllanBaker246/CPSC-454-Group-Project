@@ -25,6 +25,48 @@
 
                 <h3>Shared Files</h3>
                 <ul id="shared-files" class="file-list"></ul>
+            <ul id="my-files"></ul>
+
+            <div id="file-popup" class="file-popup">
+                <div class="file-popup-content">
+                    <button id="close-popup" class="close-popup">&times;</button>
+
+                    <h2 id="popup-file-name">File Name</h2>
+
+                    <h3>People with access</h3>
+                    <ul id="access-list">
+                        <li>You</li>
+                        <li>example@email.com</li>
+                        <li>You</li>
+                        <li>example@email.com</li>
+                        <li>You</li>
+                        <li>example@email.com</li>
+                    </ul>
+
+                    <section class="share-section">
+                        <h3>Share File</h3>
+
+                        <div class="share-search">
+                            <input type="text" id="share-search-input" placeholder="Search users...">
+
+                            <button id="share-button" type="button">Share</button>
+                        </div>
+                    </section>
+
+                    <section class="access-section">
+                        <h3>People with Access</h3>
+                        <ul id="access-list"></ul>
+                    </section>
+
+                    <button id="preview-file-button" class="preview-button">
+                        Preview File
+                    </button>
+                    <button id="delete-file-button" class="delete-button">
+                        Delete File
+                    </button>
+                </div>
+            </div>
+
             </div>
     
             <div class="content-body">

@@ -25,17 +25,135 @@
                <h4>Total files: 5433</h4>
                <h4>Total storage used: 1.2/7.0 GB</h4>
                <progress id="myBar" value="0" max="100"></progress> 
+
+               <section class="activity-log-section">
+    <div class="activity-log-header">
+        <div>
+            <h2>Activity Log</h2>
+            <p>Recent user and administrator activity.</p>
+        </div>
+
+        <div class="activity-log-controls">
+            <select id="activity-filter">
+                <option value="all">All Activities</option>
+                <option value="registered">Registered</option>
+                <option value="file-added">Files Added</option>
+                <option value="file-shared">Files Shared</option>
+                <option value="file-deleted">Files Deleted</option>
+                <option value="activated">Accounts Activated</option>
+                <option value="deactivated">Accounts Deactivated</option>
+                <option value="user-deleted">Accounts Deleted</option>
+            </select>
+
+            <button
+                type="button"
+                id="clear-activity-log"
+                class="clear-log-button"
+            >
+                Clear Log
+            </button>
+        </div>
+    </div>
+
+    <ul id="activity-log-list" class="activity-log-list"></ul>
+
+    <p id="no-activity-message" class="no-activity-message">
+        No activity has been recorded.
+    </p>
+</section>
             </div>
     
             <div class="content-body">
-                <h2>User management</h2>
-            </div>
-    
-            <div class="content-body">
-                <h2>File Management</h2>
-            </div>
-            <div class="content-body">
-                <h2>Activity Log</h2>
+
+                <section class="user-management-section">
+                    <div class="user-management-header">
+                        <div>
+                            <h2>User Management</h2>
+                            <p>Search for users and manage their accounts.</p>
+                        </div>
+
+                        <input type="search" id="user-search" class="user-search-input" placeholder="Search users...">
+                    </div>
+
+                    <div class="user-table-wrapper">
+                        <table class="user-table">
+                            <thead>
+                                <tr>
+                                    <th>User</th>
+                                    <th>Role</th>
+                                    <th>Status</th>
+                                    <th>Files</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="user-table-body"></tbody>
+                        </table>
+
+                        <p id="no-users-message" class="no-users-message">
+                            No users found.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- User popup -->
+                <div id="user-popup" class="user-popup">
+                    <div class="user-popup-content">
+                        <button type="button" id="close-user-popup" class="close-popup" aria-label="Close popup">
+                            &times;
+                        </button>
+
+                        <div class="popup-user-header">
+                            <div class="popup-user-avatar" id="popup-user-avatar"></div>
+
+                            <div>
+                                <h2 id="popup-user-name">User Name</h2>
+                                <p id="popup-user-email">user@email.com</p>
+                            </div>
+                        </div>
+
+                        <div class="user-information-grid">
+                            <div class="user-information-card">
+                                <span>Role</span>
+                                <strong id="popup-user-role">User</strong>
+                            </div>
+
+                            <div class="user-information-card">
+                                <span>Status</span>
+                                <strong id="popup-user-status">Active</strong>
+                            </div>
+
+                            <div class="user-information-card">
+                                <span>Files</span>
+                                <strong id="popup-user-file-count">0</strong>
+                            </div>
+                        </div>
+
+                        <section class="user-files-section">
+                            <h3>User Files</h3>
+
+                            <ul id="popup-user-files" class="popup-user-files"></ul>
+
+                            <p id="no-files-message" class="no-files-message">
+                                This user has no files.
+                            </p>
+                        </section>
+
+                        <div class="popup-actions">
+                            <button
+                                type="button"
+                                id="toggle-user-status"
+                                class="status-button"
+                            >
+                                Deactivate Account
+                            </button>
+
+                            <button type="button" id="delete-user-button" class="delete-button">
+                                Delete Account
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

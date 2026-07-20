@@ -1,35 +1,8 @@
 from flask import Flask, request, jsonify
-import sqlite3
+
+from database import get_db, init_db
 
 app = Flask(__name__)
-
-DATABASE = "database.db"
-
-
-def get_db():
-    conn = sqlite3.connect(DATABASE)
-    conn.row_factory = sqlite3.Row
-    return conn
-
-
-def init_db():
-    conn = get_db()
-
-    conn.execute("""
-        CREATE TABLE IF NOT EXISTS users (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            username TEXT NOT NULL,
-            email TEXT NOT NULL
-        )
-    """)
-
-    conn.execute("""
-        INSERT OR IGNORE INTO users (id, username, email)
-        VALUES (?, ?, ?)
-    """, (1, "admin", "admin@example.com"))
-
-    conn.commit()
-    conn.close()
 
 
 @app.route("/")

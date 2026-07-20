@@ -2,7 +2,14 @@ const userPageLogoutButton = document.getElementById("user-logout");
 
 userPageLogoutButton.addEventListener("click", function(){
     alert("button clicked");
-    window.location.href = "./homePage.html";
+    userPageLogoutButton.addEventListener("click", async function(){
+    await fetch("http://localhost:5000/api/user/logout", {
+        method: "POST",
+        credentials: "include"
+    });
+
+    window.location.href = "./index.html";
+    });
 });
 
         // const fileInput = document.getElementById('file-input');
@@ -212,5 +219,25 @@ shareButton.addEventListener("click", function () {
     displayAccessList();
 });
 
+async function checkAuth() {
+    try {
+        const res = await fetch("http://localhost:5000/api/auth/me", {
+            credentials: "include"
+        });
 
+        const data = await res.json();
 
+        if (!res.ok) {
+            alert("Not logged in");
+            window.location.href = "index.html";
+            return;
+        }
+
+        console.log("Logged in user:", data);
+
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+checkAuth();

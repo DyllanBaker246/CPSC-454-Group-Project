@@ -7,7 +7,7 @@ adminPageLogoutButton.addEventListener("click", function(){
 
 const bar = document.getElementById('myBar');
 // Update value dynamically
-bar.value = 75; // Bar fills to 75%
+bar.value = 10; // Bar fills to 10%
 
 
     const users = [

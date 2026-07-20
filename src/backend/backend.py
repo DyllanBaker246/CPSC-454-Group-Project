@@ -1,9 +1,18 @@
 from flask import Flask, request, jsonify
 import sqlite3
+import os
+import sys
+
+# Allow running this module as a script. Ensure the package root (`src`) is on sys.path
+# so absolute imports like `from backend.routes...` work when __package__ is None.
+if __package__ is None:
+    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
+from backend.routes.authentication import authentication_bp
 
 app = Flask(__name__)
 
-DATABASE = "database.db"
+DATABASE = os.path.join(os.path.dirname(__file__), "database.db")
 
 
 def get_db():
@@ -71,6 +80,9 @@ def get_users():
 
 if __name__ == "__main__":
     init_db()
+
+    # Register auth routes
+    app.register_blueprint(authentication_bp)
 
     print(app.url_map)
     app.run(debug=True)

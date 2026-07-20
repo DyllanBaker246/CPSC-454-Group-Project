@@ -1,15 +1,23 @@
 from flask import Blueprint, jsonify, request, session
 import datetime
+from werkzeug.security import generate_password_hash, check_password_hash
+
+from .. import crypto as crypto_module
+from ..crypto import generate_rsa_keypair, generate_symmetric_key
 
 authentication_bp = Blueprint("authentication", __name__, url_prefix="/api")
 
 # FLASK_KEY = key 
 # Helpers
 def hash_password(password):
-    pass
+    if not password:
+        return None
+    return generate_password_hash(password)
 
 def check_password(password, hashed):
-    pass
+    if not password or not hashed:
+        return False
+    return check_password_hash(hashed, password)
 
 # Register User
 @authentication_bp.route("/user/register", methods=["POST"])
@@ -98,3 +106,21 @@ def get_public_key(user_id):
         "public_key": user["public_key"]
     }), 200
     """
+
+
+# Development endpoints to generate keys. Do NOT expose these in production.
+@authentication_bp.route("/keys/generate-rsa", methods=["GET"])
+def keys_generate_rsa():
+    key_size = int(request.args.get("key_size", 2048))
+    private_pem, public_pem = generate_rsa_keypair(key_size=key_size)
+
+    return jsonify({
+        "private_key": private_pem.decode("utf-8"),
+        "public_key": public_pem.decode("utf-8"),
+    }), 200
+
+
+@authentication_bp.route("/keys/generate-symmetric", methods=["GET"])
+def keys_generate_symmetric():
+    key = generate_symmetric_key()
+    return jsonify({"symmetric_key": key.decode("utf-8")}), 200
